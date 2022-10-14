@@ -24,15 +24,16 @@ namespace looseCoupling
         public void PlayFirstLevel()
         {
             const int currLvl = 1;
+            var enemyFactory = new EnemyFactory(currLvl);
             List<IEnemy> enemies = new List<IEnemy>();
             for (int i = 0; i < 10; i++)
             {
-                enemies.Add(EnemyFactory.SpawnZombie(currLvl));
+                enemies.Add(enemyFactory.SpawnZombie(currLvl));
             }
 
             for (int i = 0; i < 3; i++)
             {
-                enemies.Add(EnemyFactory.SpawnWerewolf(currLvl));
+                enemies.Add(enemyFactory.SpawnWerewolf(currLvl));
             }
 
             foreach (var enemy in enemies)
